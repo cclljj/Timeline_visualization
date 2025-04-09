@@ -1,13 +1,11 @@
-/* General body styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+/* Make the timeline container take up the full viewport height */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Prevents scrollbars */
 }
 
-/* Styling for the timeline container */
 #timeline-embed {
     margin: 20px auto;
     max-width: 1200px;
@@ -16,68 +14,269 @@ body {
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
+    /* Height will be set dynamically by JavaScript */
+    min-height: 500px; /* Fallback minimum height */
+    transition: height 0.3s ease; /* Smooth height transitions */
+}
+
+/* Adjust padding for small screens */
+@media (max-height: 600px) {
+    #timeline-embed {
+        margin: 10px;
+        padding: 5px;
+    }
 }
 
 /* Default styling for timeline events */
-.tl-event {
-    border-radius: 5px;
-    padding: 5px;
-}
-
-/* Group-specific styles for up to 10 types */
-.tl-group-Type1 .tl-event {
-    background-color: #FFCDD2 !important; /* Light Red */
-    color: #B71C1C !important; /* Dark Red */
-}
-
-.tl-group-Type2 .tl-event {
-    background-color: #F8BBD0 !important; /* Light Pink */
-    color: #880E4F !important; /* Dark Pink */
-}
-
-.tl-group-Type3 .tl-event {
-    background-color: #E1BEE7 !important; /* Light Purple */
-    color: #4A148C !important; /* Dark Purple */
-}
-
-.tl-group-Type4 .tl-event {
-    background-color: #D1C4E9 !important; /* Light Indigo */
-    color: #311B92 !important; /* Dark Indigo */
-}
-
-.tl-group-Type5 .tl-event {
-    background-color: #BBDEFB !important; /* Light Blue */
-    color: #0D47A1 !important; /* Dark Blue */
-}
-
-.tl-group-Type6 .tl-event {
-    background-color: #C8E6C9 !important; /* Light Green */
-    color: #1B5E20 !important; /* Dark Green */
-}
-
-.tl-group-Type7 .tl-event {
-    background-color: #FFF9C4 !important; /* Light Yellow */
-    color: #F57F17 !important; /* Amber */
-}
-
-.tl-group-Type8 .tl-event {
-    background-color: #FFE0B2 !important; /* Light Orange */
-    color: #E65100 !important; /* Dark Orange */
-}
-
-.tl-group-Type9 .tl-event {
-    background-color: #FFCCBC !important; /* Light Coral */
-    color: #BF360C !important; /* Dark Coral */
-}
-
-.tl-group-Type10 .tl-event {
-    background-color: #D7CCC8 !important; /* Light Brown */
-    color: #3E2723 !important; /* Dark Brown */
-}
-
-/* Add hover effects for events */
-.tl-event:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.02);
+.tl-timemarker {
     transition: all 0.2s ease-in-out;
+}
+
+/* Improve text readability throughout */
+.tl-headline, .tl-text p {
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.01em !important;
+}
+
+.tl-headline {
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+}
+
+.tl-text p {
+    color: #333333 !important;
+}
+
+/* Type1: Vibrant Red Theme */
+.event-type-Type1.tl-timemarker .tl-timemarker-content-container {
+    background-color: #FF5252 !important; /* Vibrant Red */
+    border-color: #D50000 !important;
+    color: #FFFFFF !important;
+}
+
+.event-type-Type1.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: #FF1744 !important; /* Brighter Red when active */
+    border-color: #D50000 !important;
+    box-shadow: 0 0 8px rgba(255, 82, 82, 0.8) !important;
+}
+
+/* Type2: Teal Theme */
+.event-type-Type2.tl-timemarker .tl-timemarker-content-container {
+    background-color: #4DB6AC !important; /* Teal */
+    border-color: #00897B !important;
+    color: #FFFFFF !important;
+}
+
+.event-type-Type2.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: #26A69A !important; /* Darker Teal when active */
+    border-color: #00897B !important;
+    box-shadow: 0 0 8px rgba(77, 182, 172, 0.8) !important;
+}
+
+/* Type3: Amber Theme */
+.event-type-Type3.tl-timemarker .tl-timemarker-content-container {
+    background-color: #FFD54F !important; /* Amber */
+    border-color: #FFC107 !important;
+    color: #5D4037 !important;
+}
+
+.event-type-Type3.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: #FFCA28 !important; /* Darker Amber when active */
+    border-color: #FFC107 !important;
+    box-shadow: 0 0 8px rgba(255, 213, 79, 0.8) !important;
+}
+
+/* Type4: Deep Purple Theme */
+.event-type-Type4.tl-timemarker .tl-timemarker-content-container {
+    background-color: #9575CD !important; /* Deep Purple */
+    border-color: #673AB7 !important;
+    color: #FFFFFF !important;
+}
+
+.event-type-Type4.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: #7E57C2 !important; /* Darker Purple when active */
+    border-color: #673AB7 !important;
+    box-shadow: 0 0 8px rgba(149, 117, 205, 0.8) !important;
+}
+
+/* Type5: Green Theme */
+.event-type-Type5.tl-timemarker .tl-timemarker-content-container {
+    background-color: #81C784 !important; /* Green */
+    border-color: #43A047 !important;
+    color: #FFFFFF !important;
+}
+
+.event-type-Type5.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: #66BB6A !important; /* Darker Green when active */
+    border-color: #43A047 !important;
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.8) !important;
+}
+
+/* Styling for slide content (the detailed event view) */
+.event-type-Type1.tl-slide-content {
+    background-color: #FFEBEE !important; /* Light Red background */
+    border-color: #D50000 !important;
+    border-left: 5px solid #D50000 !important;
+}
+
+.event-type-Type1 .tl-headline {
+    color: #D50000 !important;
+}
+
+.event-type-Type2.tl-slide-content {
+    background-color: #E0F2F1 !important; /* Light Teal background */
+    border-color: #00897B !important;
+    border-left: 5px solid #00897B !important;
+}
+
+.event-type-Type2 .tl-headline {
+    color: #00897B !important;
+}
+
+.event-type-Type3.tl-slide-content {
+    background-color: #FFF8E1 !important; /* Light Amber background */
+    border-color: #FFC107 !important;
+    border-left: 5px solid #FFC107 !important;
+}
+
+.event-type-Type3 .tl-headline {
+    color: #FF8F00 !important;
+}
+
+.event-type-Type4.tl-slide-content {
+    background-color: #EDE7F6 !important; /* Light Purple background */
+    border-color: #673AB7 !important;
+    border-left: 5px solid #673AB7 !important;
+}
+
+.event-type-Type4 .tl-headline {
+    color: #673AB7 !important;
+}
+
+.event-type-Type5.tl-slide-content {
+    background-color: #E8F5E9 !important; /* Light Green background */
+    border-color: #43A047 !important;
+    border-left: 5px solid #43A047 !important;
+}
+
+.event-type-Type5 .tl-headline {
+    color: #43A047 !important;
+}
+
+/* Enhanced text readability in slide content */
+.tl-slide-content .tl-text {
+    padding: 16px !important;
+}
+
+.tl-slide-content .tl-text .tl-headline {
+    font-size: 1.25rem !important;
+    margin-bottom: 12px !important;
+}
+
+.tl-slide-content .tl-text p {
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 10px !important;
+}
+
+/* Add hover effects for markers */
+.tl-timemarker:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+}
+
+/* Extra styling for text */
+.tl-timemarker .tl-headline {
+    font-weight: bold !important;
+}
+
+/* Adding shadow to active slides */
+.tl-slide.tl-slide-active {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Improve contrast for marker text */
+.tl-timemarker-content-container .tl-headline {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Add padding to content containers for better text spacing */
+.tl-text-content-container {
+    padding: 8px !important;
+}
+
+/* Enhance the text selection color */
+::selection {
+    background-color: #B3E5FC !important;
+    color: #01579B !important;
+}
+
+/* Additional selectors to ensure colors are applied */
+.tl-timemarker[class*="event-type-Type1"] .tl-timemarker-content-container {
+    background-color: #FF5252 !important;
+    border-color: #D50000 !important;
+}
+
+.tl-timemarker[class*="event-type-Type2"] .tl-timemarker-content-container {
+    background-color: #4DB6AC !important;
+    border-color: #00897B !important;
+}
+
+.tl-timemarker[class*="event-type-Type3"] .tl-timemarker-content-container {
+    background-color: #FFD54F !important;
+    border-color: #FFC107 !important;
+}
+
+.tl-timemarker[class*="event-type-Type4"] .tl-timemarker-content-container {
+    background-color: #9575CD !important;
+    border-color: #673AB7 !important;
+}
+
+.tl-timemarker[class*="event-type-Type5"] .tl-timemarker-content-container {
+    background-color: #81C784 !important;
+    border-color: #43A047 !important;
+}
+
+/* Use attribute selectors as another fallback */
+[data-type="Type1"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-type="Type1"] {
+    background-color: #FF5252 !important;
+    border-color: #D50000 !important;
+}
+
+[data-type="Type2"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-type="Type2"] {
+    background-color: #4DB6AC !important;
+    border-color: #00897B !important;
+}
+
+[data-type="Type3"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-type="Type3"] {
+    background-color: #FFD54F !important;
+    border-color: #FFC107 !important;
+}
+
+[data-type="Type4"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-type="Type4"] {
+    background-color: #9575CD !important;
+    border-color: #673AB7 !important;
+}
+
+[data-type="Type5"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-type="Type5"] {
+    background-color: #81C784 !important;
+    border-color: #43A047 !important;
+}
+
+/* Make the active slide stand out more */
+.tl-slide.tl-slide-active {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease;
+}
+
+/* Ensure content area is prominent */
+.tl-slide-content {
+    padding: 16px !important;
+    border-radius: 4px !important;
 }
