@@ -1,0 +1,83 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for the timeline container */
+#timeline-embed {
+    margin: 20px auto;
+    max-width: 1200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+/* Default styling for timeline events */
+.tl-event {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Group-specific styles for up to 10 types */
+.tl-group-Type1 .tl-event {
+    background-color: #FFCDD2 !important; /* Light Red */
+    color: #B71C1C !important; /* Dark Red */
+}
+
+.tl-group-Type2 .tl-event {
+    background-color: #F8BBD0 !important; /* Light Pink */
+    color: #880E4F !important; /* Dark Pink */
+}
+
+.tl-group-Type3 .tl-event {
+    background-color: #E1BEE7 !important; /* Light Purple */
+    color: #4A148C !important; /* Dark Purple */
+}
+
+.tl-group-Type4 .tl-event {
+    background-color: #D1C4E9 !important; /* Light Indigo */
+    color: #311B92 !important; /* Dark Indigo */
+}
+
+.tl-group-Type5 .tl-event {
+    background-color: #BBDEFB !important; /* Light Blue */
+    color: #0D47A1 !important; /* Dark Blue */
+}
+
+.tl-group-Type6 .tl-event {
+    background-color: #C8E6C9 !important; /* Light Green */
+    color: #1B5E20 !important; /* Dark Green */
+}
+
+.tl-group-Type7 .tl-event {
+    background-color: #FFF9C4 !important; /* Light Yellow */
+    color: #F57F17 !important; /* Amber */
+}
+
+.tl-group-Type8 .tl-event {
+    background-color: #FFE0B2 !important; /* Light Orange */
+    color: #E65100 !important; /* Dark Orange */
+}
+
+.tl-group-Type9 .tl-event {
+    background-color: #FFCCBC !important; /* Light Coral */
+    color: #BF360C !important; /* Dark Coral */
+}
+
+.tl-group-Type10 .tl-event {
+    background-color: #D7CCC8 !important; /* Light Brown */
+    color: #3E2723 !important; /* Dark Brown */
+}
+
+/* Add hover effects for events */
+.tl-event:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+}
