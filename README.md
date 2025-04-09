@@ -27,8 +27,6 @@ This project is a web-based interactive timeline visualization built using [Time
 2. Start a local development server:
     
     ```bash
-    bash
-    CopyEdit
     python3 -m http.server
     
     ```
@@ -36,8 +34,6 @@ This project is a web-based interactive timeline visualization built using [Time
 3. Open your browser and navigate to:
     
     ```
-    arduino
-    CopyEdit
     http://localhost:8000
     
     ```
@@ -45,9 +41,7 @@ This project is a web-based interactive timeline visualization built using [Time
 
 ## Project Structure
 
-```
-plaintext
-CopyEdit
+```plaintext
 Timeline_visualization/
 ├── data/
 │   └── events.csv    # CSV file containing event data
@@ -89,9 +83,7 @@ Timeline_visualization/
 
 ### Example `events.csv`
 
-```
-csv
-CopyEdit
+```csv
 Date,Type,Event,Description
 2025-01-01,Type1,New Year Celebration,Start of the new year with celebrations worldwide.
 2025-02-14,Type2,Valentine's Day,A day to celebrate love and affection.
@@ -108,8 +100,6 @@ Date,Type,Event,Description
 To add more event types, update the `events.csv` file with new Type values and add corresponding styles in `style/style.css`. For example:
 
 ```css
-css
-CopyEdit
 .tl-group-Type6 .tl-event {
     background-color: #C8E6C9 !important; /* Light Green */
     color: #1B5E20 !important;           /* Dark Green */
@@ -121,9 +111,7 @@ CopyEdit
 
 Modify the `timelineOptions` object in `src/script.js` to customize the timeline behavior:
 
-```
-js
-CopyEdit
+```js
 const timelineOptions = {
     start_at_end: false,
     timenav_position: "bottom",
