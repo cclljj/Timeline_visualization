@@ -14,8 +14,8 @@ html, body {
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    /* Height will be set dynamically by JavaScript */
-    min-height: 500px; /* Fallback minimum height */
+    /* Adjusted height settings */
+    min-height: 600px; /* Increased minimum height */
     transition: height 0.3s ease; /* Smooth height transitions */
 }
 
@@ -25,6 +25,22 @@ html, body {
         margin: 10px;
         padding: 5px;
     }
+}
+
+/* Ensure the timeline navigation area has enough space for multiple rows */
+.tl-timenav-container {
+    min-height: 180px !important; /* Provide more space for the timeline navigation */
+}
+
+/* Ensure better spacing between timeline marker rows */
+.tl-timemarker-row {
+    margin-bottom: 6px !important; 
+}
+
+/* Add specific styling to ensure timeline markers in multiple rows are visible */
+.tl-timemarker-content-container {
+    padding: 5px 10px !important;
+    min-height: 26px !important;
 }
 
 /* Default styling for timeline events */
