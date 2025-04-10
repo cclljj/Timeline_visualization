@@ -64,100 +64,168 @@ html, body {
     color: #333333 !important;
 }
 
-/* Type1: Vibrant Red Theme */
-.event-type-Type1.tl-timemarker .tl-timemarker-content-container {
-    background-color: #FF5252 !important; /* Vibrant Red */
-    border-color: #D50000 !important;
+/* Define CSS variables for event types */
+:root {
+    --type1-bg: #42A5F5;
+    --type1-border: #1E88E5;
+    --type1-active-bg: #1E88E5;
+    --type1-active-border: #1565C0;
+
+    --type2-bg: #EF5350;
+    --type2-border: #D32F2F;
+    --type2-active-bg: #D32F2F;
+    --type2-active-border: #B71C1C;
+
+    --type3-bg: #66BB6A;
+    --type3-border: #43A047;
+    --type3-active-bg: #43A047;
+    --type3-active-border: #2E7D32;
+
+    /* Add more types here */
+}
+
+/* General styles for event types */
+.tl-timemarker-content-container {
+    background-color: var(--default-bg, #ffffff) !important;
+    border-color: var(--default-border, #dddddd) !important;
+    color: var(--default-color, #000000) !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: var(--default-active-bg, #ffffff) !important;
+    border-color: var(--default-active-border, #dddddd) !important;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Event type-specific styles */
+.event-type-Type1 {
+    --default-bg: var(--type1-bg);
+    --default-border: var(--type1-border);
+    --default-active-bg: var(--type1-active-bg);
+    --default-active-border: var(--type1-active-border);
+}
+
+.event-type-Type2 {
+    --default-bg: var(--type2-bg);
+    --default-border: var(--type2-border);
+    --default-active-bg: var(--type2-active-bg);
+    --default-active-border: var(--type2-active-border);
+}
+
+.event-type-Type3 {
+    --default-bg: var(--type3-bg);
+    --default-border: var(--type3-border);
+    --default-active-bg: var(--type3-active-bg);
+    --default-active-border: var(--type3-active-border);
+}
+
+/* Add more event types dynamically by defining variables */
+
+/* Type1: Light Blue Theme - DIRECT TARGETING OF ELEMENTS */
+.event-type-Type1 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type1 .tl-timemarker-content-container {
+    background-color: var(--type1-bg) !important; /* Brighter Blue */
+    border-color: var(--type1-border) !important;
     color: #FFFFFF !important;
 }
 
-.event-type-Type1.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
-    background-color: #FF1744 !important; /* Brighter Red when active */
-    border-color: #D50000 !important;
-    box-shadow: 0 0 8px rgba(255, 82, 82, 0.8) !important;
+.event-type-Type1.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type1.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: var(--type1-active-bg) !important; /* Darker blue when active */
+    border-color: var(--type1-active-border) !important;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.8) !important;
 }
 
-/* Type2: Teal Theme */
-.event-type-Type2.tl-timemarker .tl-timemarker-content-container {
-    background-color: #4DB6AC !important; /* Teal */
-    border-color: #00897B !important;
+/* Type2: Light Red Theme */
+.event-type-Type2 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type2 .tl-timemarker-content-container {
+    background-color: var(--type2-bg) !important; /* Brighter Red */
+    border-color: var(--type2-border) !important;
     color: #FFFFFF !important;
 }
 
-.event-type-Type2.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
-    background-color: #26A69A !important; /* Darker Teal when active */
-    border-color: #00897B !important;
-    box-shadow: 0 0 8px rgba(77, 182, 172, 0.8) !important;
+.event-type-Type2.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type2.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: var(--type2-active-bg) !important; /* Darker red when active */
+    border-color: var(--type2-active-border) !important;
+    box-shadow: 0 0 8px rgba(244, 67, 54, 0.8) !important;
 }
 
-/* Type3: Amber Theme */
-.event-type-Type3.tl-timemarker .tl-timemarker-content-container {
-    background-color: #FFD54F !important; /* Amber */
-    border-color: #FFC107 !important;
-    color: #5D4037 !important;
+/* Type3: Light Green Theme */
+.event-type-Type3 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type3 .tl-timemarker-content-container {
+    background-color: var(--type3-bg) !important; /* Brighter Green */
+    border-color: var(--type3-border) !important;
+    color: #FFFFFF !important;
 }
 
-.event-type-Type3.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
-    background-color: #FFCA28 !important; /* Darker Amber when active */
-    border-color: #FFC107 !important;
-    box-shadow: 0 0 8px rgba(255, 213, 79, 0.8) !important;
+.event-type-Type3.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type3.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: var(--type3-active-bg) !important; /* Darker green when active */
+    border-color: var(--type3-active-border) !important;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.8) !important;
 }
 
 /* Type4: Deep Purple Theme */
-.event-type-Type4.tl-timemarker .tl-timemarker-content-container {
-    background-color: #9575CD !important; /* Deep Purple */
-    border-color: #673AB7 !important;
+.event-type-Type4 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type4 .tl-timemarker-content-container {
+    background-color: #7E57C2 !important; /* Brighter Purple */
+    border-color: #5E35B1 !important;
     color: #FFFFFF !important;
 }
 
-.event-type-Type4.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
-    background-color: #7E57C2 !important; /* Darker Purple when active */
-    border-color: #673AB7 !important;
+.event-type-Type4.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type4.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: #5E35B1 !important; /* Darker Purple when active */
+    border-color: #4527A0 !important;
     box-shadow: 0 0 8px rgba(149, 117, 205, 0.8) !important;
 }
 
 /* Type5: Green Theme */
-.event-type-Type5.tl-timemarker .tl-timemarker-content-container {
-    background-color: #81C784 !important; /* Green */
-    border-color: #43A047 !important;
+.event-type-Type5 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type5 .tl-timemarker-content-container {
+    background-color: #FFA726 !important; /* Orange instead of Green */
+    border-color: #FB8C00 !important;
     color: #FFFFFF !important;
 }
 
-.event-type-Type5.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
-    background-color: #66BB6A !important; /* Darker Green when active */
-    border-color: #43A047 !important;
-    box-shadow: 0 0 8px rgba(129, 199, 132, 0.8) !important;
+.event-type-Type5.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type5.tl-timemarker-active .tl-timemarker-content-container {
+    background-color: #FB8C00 !important; /* Darker Orange when active */
+    border-color: #EF6C00 !important;
+    box-shadow: 0 0 8px rgba(255, 167, 38, 0.8) !important;
 }
 
 /* Styling for slide content (the detailed event view) */
 .event-type-Type1.tl-slide-content {
-    background-color: #FFEBEE !important; /* Light Red background */
-    border-color: #D50000 !important;
-    border-left: 5px solid #D50000 !important;
+    background-color: #E3F2FD !important; /* Light Blue background */
+    border-color: #2196F3 !important;
+    border-left: 5px solid #2196F3 !important;
 }
 
 .event-type-Type1 .tl-headline {
-    color: #D50000 !important;
+    color: #1565C0 !important;
 }
 
 .event-type-Type2.tl-slide-content {
-    background-color: #E0F2F1 !important; /* Light Teal background */
-    border-color: #00897B !important;
-    border-left: 5px solid #00897B !important;
+    background-color: #FFEBEE !important; /* Light Red background */
+    border-color: #F44336 !important;
+    border-left: 5px solid #F44336 !important;
 }
 
 .event-type-Type2 .tl-headline {
-    color: #00897B !important;
+    color: #C62828 !important;
 }
 
 .event-type-Type3.tl-slide-content {
-    background-color: #FFF8E1 !important; /* Light Amber background */
-    border-color: #FFC107 !important;
-    border-left: 5px solid #FFC107 !important;
+    background-color: #E8F5E9 !important; /* Light Green background */
+    border-color: #4CAF50 !important;
+    border-left: 5px solid #4CAF50 !important;
 }
 
 .event-type-Type3 .tl-headline {
-    color: #FF8F00 !important;
+    color: #2E7D32 !important;
 }
 
 .event-type-Type4.tl-slide-content {
@@ -228,61 +296,45 @@ html, body {
     color: #01579B !important;
 }
 
-/* Additional selectors to ensure colors are applied */
-.tl-timemarker[class*="event-type-Type1"] .tl-timemarker-content-container {
-    background-color: #FF5252 !important;
-    border-color: #D50000 !important;
+/* HIGH SPECIFICITY SELECTORS - Force colors to apply */
+[data-unique-id="event-type-Type1"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-unique-id="event-type-Type1"],
+.tl-timemarker[data-unique-id="event-type-Type1"] .tl-timemarker-content-container {
+    background-color: var(--type1-bg) !important; /* Brighter Blue */
+    border-color: var(--type1-border) !important;
+    color: #FFFFFF !important;
 }
 
-.tl-timemarker[class*="event-type-Type2"] .tl-timemarker-content-container {
-    background-color: #4DB6AC !important;
-    border-color: #00897B !important;
+[data-unique-id="event-type-Type2"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-unique-id="event-type-Type2"],
+.tl-timemarker[data-unique-id="event-type-Type2"] .tl-timemarker-content-container {
+    background-color: var(--type2-bg) !important; /* Brighter Red */
+    border-color: var(--type2-border) !important;
+    color: #FFFFFF !important;
 }
 
-.tl-timemarker[class*="event-type-Type3"] .tl-timemarker-content-container {
-    background-color: #FFD54F !important;
-    border-color: #FFC107 !important;
+[data-unique-id="event-type-Type3"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-unique-id="event-type-Type3"],
+.tl-timemarker[data-unique-id="event-type-Type3"] .tl-timemarker-content-container {
+    background-color: var(--type3-bg) !important; /* Brighter Green */
+    border-color: var(--type3-border) !important;
+    color: #FFFFFF !important;
 }
 
-.tl-timemarker[class*="event-type-Type4"] .tl-timemarker-content-container {
-    background-color: #9575CD !important;
-    border-color: #673AB7 !important;
+[data-unique-id="event-type-Type4"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-unique-id="event-type-Type4"],
+.tl-timemarker[data-unique-id="event-type-Type4"] .tl-timemarker-content-container {
+    background-color: #7E57C2 !important; /* Brighter Purple */
+    border-color: #5E35B1 !important;
+    color: #FFFFFF !important;
 }
 
-.tl-timemarker[class*="event-type-Type5"] .tl-timemarker-content-container {
-    background-color: #81C784 !important;
-    border-color: #43A047 !important;
-}
-
-/* Use attribute selectors as another fallback */
-[data-type="Type1"] .tl-timemarker-content-container,
-.tl-timemarker-content-container[data-type="Type1"] {
-    background-color: #FF5252 !important;
-    border-color: #D50000 !important;
-}
-
-[data-type="Type2"] .tl-timemarker-content-container,
-.tl-timemarker-content-container[data-type="Type2"] {
-    background-color: #4DB6AC !important;
-    border-color: #00897B !important;
-}
-
-[data-type="Type3"] .tl-timemarker-content-container,
-.tl-timemarker-content-container[data-type="Type3"] {
-    background-color: #FFD54F !important;
-    border-color: #FFC107 !important;
-}
-
-[data-type="Type4"] .tl-timemarker-content-container,
-.tl-timemarker-content-container[data-type="Type4"] {
-    background-color: #9575CD !important;
-    border-color: #673AB7 !important;
-}
-
-[data-type="Type5"] .tl-timemarker-content-container,
-.tl-timemarker-content-container[data-type="Type5"] {
-    background-color: #81C784 !important;
-    border-color: #43A047 !important;
+[data-unique-id="event-type-Type5"] .tl-timemarker-content-container,
+.tl-timemarker-content-container[data-unique-id="event-type-Type5"],
+.tl-timemarker[data-unique-id="event-type-Type5"] .tl-timemarker-content-container {
+    background-color: #FFA726 !important; /* Orange instead of Green */
+    border-color: #FB8C00 !important;
+    color: #FFFFFF !important;
 }
 
 /* Make the active slide stand out more */
@@ -295,4 +347,110 @@ html, body {
 .tl-slide-content {
     padding: 16px !important;
     border-radius: 4px !important;
+}
+
+/* DIRECT TARGETING OF TIMELINE MARKERS - These selectors ensure the marker background colors are always applied */
+/* This targets the actual marker elements in the timeline navigation area */
+
+/* Force timeline marker styling with highest specificity */
+.tl-timenav .tl-timemarker.event-type-Type1 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type1 .tl-timemarker-content-container {
+    background-color: var(--type1-bg) !important; /* Brighter Blue */
+    border-color: var(--type1-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker.event-type-Type2 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type2 .tl-timemarker-content-container {
+    background-color: var(--type2-bg) !important; /* Brighter Red */
+    border-color: var(--type2-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker.event-type-Type3 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type3 .tl-timemarker-content-container {
+    background-color: var(--type3-bg) !important; /* Brighter Green */
+    border-color: var(--type3-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker.event-type-Type4 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type4 .tl-timemarker-content-container {
+    background-color: #7E57C2 !important; /* Brighter Purple */
+    border-color: #5E35B1 !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker.event-type-Type5 .tl-timemarker-content-container,
+.tl-timemarker.event-type-Type5 .tl-timemarker-content-container {
+    background-color: #FFA726 !important; /* Orange */
+    border-color: #FB8C00 !important;
+    color: #FFFFFF !important;
+}
+
+/* Target markers with unique-id attribute */
+.tl-timenav .tl-timemarker[data-unique-id="event-type-Type1"] .tl-timemarker-content-container {
+    background-color: var(--type1-bg) !important; /* Brighter Blue */
+    border-color: var(--type1-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker[data-unique-id="event-type-Type2"] .tl-timemarker-content-container {
+    background-color: var(--type2-bg) !important; /* Brighter Red */
+    border-color: var(--type2-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker[data-unique-id="event-type-Type3"] .tl-timemarker-content-container {
+    background-color: var(--type3-bg) !important; /* Brighter Green */
+    border-color: var(--type3-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker[data-unique-id="event-type-Type4"] .tl-timemarker-content-container {
+    background-color: #7E57C2 !important; /* Brighter Purple */
+    border-color: #5E35B1 !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker[data-unique-id="event-type-Type5"] .tl-timemarker-content-container {
+    background-color: #FFA726 !important; /* Orange */
+    border-color: #FB8C00 !important;
+    color: #FFFFFF !important;
+}
+
+/* Ensure bottom timeline event boxes use the correct colors */
+.tl-timenav .tl-timemarker.event-type-Type1,
+.tl-timenav .tl-timemarker.event-type-Type1 .tl-timemarker-content-container {
+    background-color: var(--type1-bg) !important; /* Brighter Blue */
+    border-color: var(--type1-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker.event-type-Type2,
+.tl-timenav .tl-timemarker.event-type-Type2 .tl-timemarker-content-container {
+    background-color: var(--type2-bg) !important; /* Brighter Red */
+    border-color: var(--type2-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker.event-type-Type3,
+.tl-timenav .tl-timemarker.event-type-Type3 .tl-timemarker-content-container {
+    background-color: var(--type3-bg) !important; /* Brighter Green */
+    border-color: var(--type3-border) !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker.event-type-Type4,
+.tl-timenav .tl-timemarker.event-type-Type4 .tl-timemarker-content-container {
+    background-color: #7E57C2 !important; /* Brighter Purple */
+    border-color: #5E35B1 !important;
+    color: #FFFFFF !important;
+}
+
+.tl-timenav .tl-timemarker.event-type-Type5,
+.tl-timenav .tl-timemarker.event-type-Type5 .tl-timemarker-content-container {
+    background-color: #FFA726 !important; /* Orange */
+    border-color: #FB8C00 !important;
+    color: #FFFFFF !important;
 }
